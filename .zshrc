@@ -28,7 +28,7 @@ PROMPT='%F{yellow}${(%):-%~}%f$(git_super_status) %F{white}%#%f '
 ulimit -n 2048
 
 # Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="/usr/local/heroku/bin:$PATH"
 
 # RVM
 #. /usr/local/rvm/scripts/rvm
@@ -38,7 +38,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #export PATH="/usr/local/rvm/gems/ruby-2.1.0/bin:/usr/local/sbin:/usr/local/heroku/bin:$PATH"
 
 # Java 7
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 # bind keys
 bindkey -e

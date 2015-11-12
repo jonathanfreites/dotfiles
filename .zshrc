@@ -1,44 +1,98 @@
-# Git Prompt
-source $HOME/.dotfiles/.zsh/git-prompt/zshrc
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
-# zsh options
-setopt hist_ignore_dups # duplicate ignoring
-setopt correctall # typo correction
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="miloshadzic"
+#ZSH_THEME="powerline"
+#POWERLINE_HIDE_HOST_NAME="true"
 
-# Some custom search paths
-export PATH="$HOME/Scripts:/usr/local/bin:/usr/local/sbin:$HOME/pear/bin:$PATH"
-export PATH="/usr/local/share/npm/bin:$PATH"
-#export PATH="$HOME/Scripts/AWS-ElasticBeanstalk-CLI-2.4.0/eb/macosx/python2.7:$PATH"
-export RUBYLIB="/usr/local/lib/ruby/site_ruby"
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# Colors
-export TERM="screen-256color"
-export CLICOLOR=1
-export JAVA_HOME="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# editor
-export EDITOR="vim"
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# Prompt
-autoload -U colors && colors
-autoload -U promptinit && promptinit
-PROMPT='%F{yellow}${(%):-%~}%f$(git_super_status) %F{white}%#%f '
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-# Up the ULIMIT
-ulimit -n 2048
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-# Added by the Heroku Toolbelt
-#export PATH="/usr/local/heroku/bin:$PATH"
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# RVM
-#. /usr/local/rvm/scripts/rvm
-#export PATH="/usr/local/rvm/gems/ruby-2.1.0/bin:/usr/local/rvm/bin:$PATH" # Add RVM to PATH for scripting
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-# Added by the Heroku Toolbelt
-#export PATH="/usr/local/rvm/gems/ruby-2.1.0/bin:/usr/local/sbin:/usr/local/heroku/bin:$PATH"
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
 
-# Java 7
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# bind keys
-bindkey -e
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+# User configuration
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gs='git status'
+alias ggl='git glog'
+alias php-switch='~/.bin/php-switch/php-switch'
+PHP_HOME=""
+export PATH=$PHP_HOME:$PATH
+PATH="/usr/local/sbin:$PATH"
+
+function r {
+    time php /Users/jonathan.freites/Sites/linio/bin/rocket.php $@
+}
+source "/Users/jonathan.freites/Sites/linio/tools/dev/shell-complete/zsh"
